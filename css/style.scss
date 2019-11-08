@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Montserrat|Roboto&display=swap');
+
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing:border-box;
+}
+body{
+    font-family:"Roboto", sans-serif ;
+    overflow-x:hidden;
+}
+ul .links {
+    margin-left:50px;
+}
+.course-section{
+    margin-top:6em;
+}
+.courses{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.card{
+    margin-left:4em;
+    
+}
+.card-4,
+.card-5,
+.card-6{
+  margin-top:5em;  
+}
+.main-footer{
+    background-color:lightgray;
+    width:100vw;
+    height: 90px;
+}
+.footer{
+    margin-top:60px;
+    margin-left:20px;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+}
+.footer-para{
+    margin-top:40px;
+}

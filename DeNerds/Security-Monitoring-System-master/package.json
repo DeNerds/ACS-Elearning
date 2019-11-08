@@ -1,0 +1,27 @@
+{
+  "name": "security-monitoring-system",
+  "version": "1.0.0",
+  "description": "A system to help with logging who has classroom keys",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeNerds/Security-Monitoring-System.git"
+  },
+  "keywords": [
+    "Security",
+    "GTUC"
+  ],
+  "author": "Damilola Randolph, Susuassey Wonder, Richfield King",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DeNerds/Security-Monitoring-System/issues"
+  },
+  "homepage": "https://github.com/DeNerds/Security-Monitoring-System#readme"
+
+"dependencies":{
+"express": "3.x"
+}
+}
