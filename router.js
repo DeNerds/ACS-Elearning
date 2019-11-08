@@ -13,31 +13,15 @@
 
  let db = firebase.firestore();
 
- /* db.collection("courses").add({
-     Name: "Java",
-     Description: "A ool java tutorial"
- }) */
 
+ let teacher = document.getElementById("teacher");
+ let home = document.getElementById("home");
+ let description = document.getElementById("description");
+ let title = document.getElementById("title");
 
- var ui = new firebaseui.auth.AuthUI(firebase.auth());
-
-
-
-
-
- ui.start("#firebase-auth", {
-     signInOptions: [
-         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-         firebase.auth.EmailAuthProvider.PROVIDER_ID
-     ],
-
-     callbacks: {
-         signInSuccessWithAuthResult: function (res, redirectUrl) {
-
-             return true;
-         }
-     },
-
-     signInSuccessUrl: "./Heaven.html"
-
- })
+ var routerPage = function (teacherText, homeUrl, descriptionText, titleText) {
+     teacher.textContent = teacherText;
+     home.style.backgroundImage = homeUrl;
+     description.textContent = descriptionText;
+     title.textContent = titleText;
+ }

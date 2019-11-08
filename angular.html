@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./home.css">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/animate.min.css">
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+  <title>code-Fest </title>
+</head>
+
+<body>
+  <header>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">ACS Students Portal</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link links" href="#home"> Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item links">
+            <a class="nav-link" href="#blog">Blog</a>
+          </li>
+          <li class="nav-item links">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item links">
+            <a class="nav-link" href="./login/login.html">Login</a>
+          </li>
+          <li class="nav-item links">
+            <a class="nav-link" href="#contacts">Contacts</a>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+  </header>
+  <section class="home" id="home">
+    <h1 class="header-text">gdgd</h1>
+    <p id="title" class="header-para">Hello Its deNerdz</p>
+    <button class="btn btn-lg btn-success">Enroll Now</button>
+  </section>
+
+  <main class="about" id="about">
+    <h1 align="center">About this course</h1>
+    <div class="line"></div>
+    <div class="card-cont">
+      <div class="cards">
+        <div class="container">
+          <h4><b>Name of Tutor</b></h4>
+          <p id="teacher">Francis Hammond</p>
+        </div>
+      </div>
+      <div class="cards">
+        <div class="container">
+          <h4><b>Description</b></h4>
+          <p id="description">bwhvcjavcj</p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer">
+      <p class="footer-para">ACS copyright 2019</p>
+      <p class="footer-para"> Terms of use</p>
+      <p class="footer-para">privacy policy</p>
+    </div>
+  </footer>
+  <script src="./jshome.js"></script>
+  <script src="./js/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/16.1.0/smooth-scroll.min.js"
+    integrity="sha256-CfyPGYLRQ4v1O+mZa5ocQglABXGuaZmmfe8awy8Fxis=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/16.1.0/smooth-scroll.min.js"
+    integrity="sha256-CfyPGYLRQ4v1O+mZa5ocQglABXGuaZmmfe8awy8Fxis=" crossorigin="anonymous"></script>
+
+  <script src="./js/jquery.js"></script>
+
+
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyA9_WVQybHH647BFa34VVmWBZyHrn17_Sg",
+      authDomain: "elearning-45747.firebaseapp.com",
+      databaseURL: "https://elearning-45747.firebaseio.com",
+      projectId: "elearning-45747",
+      storageBucket: "elearning-45747.appspot.com",
+      messagingSenderId: "838740883930",
+      appId: "1:838740883930:web:aeb90860263ea1a33ca8e3",
+      measurementId: "G-2QHQKP5GWV"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    let db = firebase.firestore();
+
+
+    let teacher = document.getElementById("teacher");
+    let home = document.getElementById("home");
+    let description = document.getElementById("description");
+    let title = document.getElementById("title");
+
+    var routerPage = function (teacherText, homeUrl, descriptionText, titleText) {
+      teacher.textContent = teacherText;
+      home.style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.9)), url("' + homeUrl + '")';
+      description.textContent = descriptionText;
+      title.textContent = titleText;
+    }
+  </script>
+
+
+  <script>
+    db.collection("courses").get().then((querySnapshot) => {
+      console.log(querySnapshot)
+      var data = "";
+      querySnapshot.forEach((doc) => {
+        if (doc.id == "angular-course") data = doc.data();
+      });
+
+      routerPage(data.Teacher, data["pic url"], data.Description, data.Title);
+
+    });
+
+    routerPage()
+  </script>
+</body>
+
+</html>

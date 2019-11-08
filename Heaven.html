@@ -8,6 +8,23 @@
   <script src="static/jquery=3.4.1.min.js"></script>
   <script src="static/popper.min.js"></script>
   <script src="static/js/bootstrap.min.js"></script>
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+  <script src="main.js"></script>
+
 
   <style>
     .bd-placeholder-img {
@@ -47,8 +64,15 @@
       </form>
     </div>
 
-    <button class="btn btn-default my-2 my-sm-0" type="submit">Login</button>
-    <button class="btn btn-outline-default my-2 my-sm-0" type="submit">Sign up</button>
+
+
+    <p id="auth"> <a href="./login.html"><button class="btn btn-default my-2 my-sm-0" type="submit">Login</button></a>
+    </p>
+    <a href="./login.html"><button id="signin" class="btn btn-outline-default my-2 my-sm-0" type="submit">Sign
+        up</button></a>
+    </p>
+
+    <span id="name" style="display: none;"><button class="btn btn-outline-default my-2 my-sm-0"></button></span>
 
 
   </nav>
@@ -82,7 +106,7 @@
               <div class="card-body">
                 <h5 class="card-title">Learn Algorithms</h5>
                 <p class="card-text">Enroll on Data structures and Algorithms</p>
-                <a href="#" class="btn btn-info">Enroll now</a>
+                <a href="./java.html" class="btn btn-info">Enroll now</a>
               </div>
             </div>
           </div>
@@ -93,7 +117,7 @@
               <div class="card-body">
                 <h5 class="card-title">Angular JS</h5>
                 <p class="card-text">Enroll this course to learn a js frontend framework</p>
-                <a href="#" class="btn btn-info">Enroll now</a>
+                <a href="./angular.html" class="btn btn-info">Enroll now</a>
               </div>
             </div>
           </div>
@@ -104,7 +128,7 @@
               <div class="card-body">
                 <h5 class="card-title">Javascript</h5>
                 <p class="card-text">Learn Javascript for building multiple platform apps</p>
-                <a href="#" class="btn btn-info">Enroll now</a>
+                <a href="./js.html" class="btn btn-info">Enroll now</a>
               </div>
             </div>
           </div>
@@ -168,7 +192,7 @@
           <a href="#">Back to top</a>
         </p>
         <p>DeNerds &copy; 2019 </p>
-        <p style=align:center;></p>
+        <p style="align-self: center;"></p>
       </div>
     </footer>
 
